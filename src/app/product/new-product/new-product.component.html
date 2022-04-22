@@ -1,0 +1,66 @@
+<div [formGroup]="form">
+  <div class="pt-52 pb-32 bg-gray-100 text-center">
+    <div class="container">
+      <div class="grid grid-cols-12 gap-4 lg:gap-8 xxl:gap-16">
+        <div class="contact__form col-span-12 lg:col-span-7">
+          <div>
+            <div class="flex flex-wrap sm:flex-nowrap sm:space-x-5 mt-3">
+              <input type="text" placeholder="Product Name" formControlName="productName"
+                class="border border-gray-200 p-2 px-4 w-full sm:w-1/2 rounded-sm" />
+              <input type="number" placeholder="Price" formControlName="price"
+                class="border border-gray-200 p-2 px-4 w-full sm:w-1/2 rounded-sm mt-3 sm:mt-0" />
+            </div>
+
+            <input type="text" placeholder="City" class="border border-gray-200 p-2 px-4 w-full rounded-sm mt-5"
+              matInput [formControl]="myControl" [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selectedclient($event)" autoActiveFirstOption
+              [displayWith]="getOptionText">
+              <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+                {{ option.name }}
+              </mat-option>
+            </mat-autocomplete>
+
+            <textarea cols="10" rows="3" placeholder="Describe your product" formControlName="description" [value]="''"
+              class="border border-gray-200 p-3 mt-5 w-full rounded-sm mt-5">
+        </textarea>
+
+            <input style="display: none" type="file" (change)="fileChangeEvent($event)" #fileInput>
+            <input readonly type="text" placeholder="Select Picture" (click)="fileInput.click()"
+              class="border border-gray-200 p-2 px-4 w-full rounded-sm mt-5 mb-5" />
+            <mat-card class="pull-left">
+              <mat-card-content>
+                <h4>Select Which Item do you want to show...</h4>
+
+                <section class="example-section">
+                  <p class="check-box-container">
+                    <mat-checkbox class="" [checked]="showFulName">Show Full Name</mat-checkbox>
+                    <input type="text" placeholder="Full Name" formControlName="fullName"
+                      class="border p-2 px-4 w-full rounded-sm mb-5" />
+                  </p>
+                  <p class="check-box-container">
+                    <mat-checkbox class="" [checked]="showPhoneNumber">Show Phone Number</mat-checkbox>
+                    <input type="text" placeholder="Phone Number" formControlName="phoneNumber"
+                      class="border p-2 px-4 w-full rounded-sm mb-5" />
+                  </p>
+                  <p class="check-box-container">
+                    <mat-checkbox class="" [checked]="showTelegramId">Show TelegramId</mat-checkbox>
+                    <input type="text" placeholder="TelegramId" formControlName="telegramId"
+                      class="border p-2 px-4 w-full rounded-sm mb-5" />
+                  </p>
+                </section>
+              </mat-card-content>
+            </mat-card>
+
+            <button class="px-5 py-2 bg-accent text-white mt-5 rounded font-medium" (click)="onSubmit()">Save</button>
+          </div>
+        </div>
+        <div class="col-span-12 lg:col-span-5 p-8 xxl:px-16 mt-10 lg:mt-0 cropper-container">
+          <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 4"
+            [resizeToWidth]="256" format="png" (imageCropped)="imageCropped($event)" (imageLoaded)="imageLoaded()"
+            (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+          </image-cropper>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- </div> -->

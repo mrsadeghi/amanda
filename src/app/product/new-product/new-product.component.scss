@@ -1,0 +1,18 @@
+.cropper-container{
+  border: 1px solid #ffffff;
+  background-color:#ffffff;
+}
+.pull-left{
+  text-align: left;
+}
+// ::ng-deep .mat-checkbox .mat-checkbox-inner-container {
+//   width: 30px;
+//   height: 30px;
+// }
+::ng-deep .mat-checkbox .mat-checkbox-label {
+  font-size: 15px;
+  color: #000
+}
+.check-box-container{
+  margin-bottom: 5px;;
+}

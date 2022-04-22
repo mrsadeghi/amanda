@@ -1,0 +1,129 @@
+<div class="ll-search pb-6 pt-20">
+  <div class="container">
+    <div class="border overflow-hidden sm:rounded-md p-5">
+      <div class="mb-3">
+        <div class="flex justify-between flex-wrap">
+          <h4>Find your need</h4>
+          <button (click)="advanceSearchExpanded = !advanceSearchExpanded" mat-button>
+            <mat-icon>tune</mat-icon> ADVANCED SEARCH
+          </button>
+        </div>
+        <div class="mt-3 flex">
+          <input type="text" placeholder="I am looking for ..." matInput [matAutocomplete]="auto"
+            [formControl]="myControl" class="flex-1 w-full sm:text-sm lg:text-xl border-gray-300 rounded-l-md py-3 px-6"
+            required />
+          <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+              {{option}}
+            </mat-option>
+          </mat-autocomplete>
+          <button class="bg-primary w-24 rounded-r-md">
+            <mat-icon class="leading-8">search</mat-icon>
+          </button>
+        </div>
+      </div>
+      <mat-expansion-panel [expanded]="advanceSearchExpanded">
+        <div class="grid grid-cols-6 gap-6 mt-4">
+          <div class="col-span-6 sm:col-span-3">
+            <input type="text"
+              class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+              placeholder="Start price" />
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <input type="text"
+              class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md"
+              placeholder="End price" />
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <select name="categories"
+              class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              <option>Category</option>
+              <option>Microservices</option>
+              <option>Shipping Service</option>
+              <option>Consulting</option>
+            </select>
+          </div>
+          <div class="col-span-6 sm:col-span-3">
+            <select name="rating"
+              class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+              <option>Rating</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="col-span-6">
+            <button mat-flat-button color="accent">Apply filter</button>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </div>
+  </div>
+</div>
+<ll-home-products></ll-home-products>
+
+<!-- <div class="ll-process-area bg-black mt-16">
+  <div class="container">
+    <h2 class="ll-process__title text-center text-warn mb-8">How it works</h2>
+    <div class="ll-processes grid grid-cols-12 gap-8">
+      <div class="ll-process col-span-12 sm:col-span-6 lg:col-span-3">
+        <div class="number">01</div>
+        <h3 class="mb-2 text-warn font-bold">Choose</h3>
+        <p class="text-white">You choose the micro-service that you need right now.</p>
+      </div>
+      <div class="ll-process col-span-12 sm:col-span-6 lg:col-span-3">
+        <div class="number">02</div>
+        <h3 class="mb-2 text-warn font-bold">Book</h3>
+        <p class="text-white">You choose the micro-service that you need right now.</p>
+      </div>
+      <div class="ll-process col-span-12 sm:col-span-6 lg:col-span-3">
+        <div class="number">03</div>
+        <h3 class="mb-2 text-warn font-bold">Contact</h3>
+        <p class="text-white">You choose the micro-service that you need right now.</p>
+      </div>
+      <div class="ll-process col-span-12 sm:col-span-6 lg:col-span-3">
+        <div class="number">04</div>
+        <h3 class="mb-2 text-warn font-bold">Execution</h3>
+        <p class="text-white">You choose the micro-service that you need right now.</p>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<!-- <div class="pt-20 ll-starter">
+  <div class="container">
+    <h2 class="text-center mb-16 xl:mb-0">Start with you desire</h2>
+    <div class="grid xl:grid-cols-2 gap-x-8 mt-10">
+      <div class="ll-starter__card px-5 grid grid-cols-12 place-items-center">
+        <div class="col-span-5 px-5">
+          <img class="-mt-14" src="assets/images/starter-01.png" alt="" />
+        </div>
+        <div class="py-5 col-span-7">
+          <h4 class="text-white mb-4">Start as a buyer</h4>
+          <p class="text-white mb-7">
+            Become part of your Lieblings services and book the micro-service that will help your production company at any time.
+          </p>
+          <a [routerLink]="['/auth/signup']" routerLinkActive="router-link-active" mat-flat-button color="warn" class="font-semibold"
+            >Join Now</a
+          >
+        </div>
+      </div>
+      <div class="ll-starter__card px-5 grid grid-cols-12 place-items-center mt-16 xl:mt-0">
+        <div class="col-span-5 px-5">
+          <img class="-mt-14" src="assets/images/starter-02.png" alt="" />
+        </div>
+        <div class="py-5 col-span-7 order-first text-right">
+          <h4 class="text-white mb-4">Start as a consultant</h4>
+          <p class="text-white mb-7">
+            Become part of your Lieblings services and book the micro-service that will help your production company at any time.
+          </p>
+          <a [routerLink]="['/auth/signup']" routerLinkActive="router-link-active" mat-flat-button color="warn" class="font-semibold"
+            >Join Now</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
