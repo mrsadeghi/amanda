@@ -6,6 +6,7 @@ import { map } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
 import { User } from '@app/shared/models/user';
+import { ProfileRequestVM } from '../models/profile';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {
@@ -54,6 +55,9 @@ export class AccountService {
         return this.http.get<User>(`${environment.apiUrl}/users/${id}`);
     }
 
+    updateProfile(model: ProfileRequestVM) {
+        return this.http.post(`${environment.apiUrl}/users/updateProfile`, model);
+    }
     update(id, params) {
         return this.http.put(`${environment.apiUrl}/users/${id}`, params)
             .pipe(map(x => {

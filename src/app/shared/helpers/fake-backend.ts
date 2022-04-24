@@ -25,6 +25,8 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return authenticate();
                 case url.endsWith('/users/register') && method === 'POST':
                     return register();
+                case url.endsWith('/users/updateProfile') && method === 'POST':
+                    return updateProfile();
                 case url.endsWith('/products') && method === 'POST':
                     return addProduct();
                 case url.endsWith('/products') && method === 'GET':
@@ -99,8 +101,11 @@ export class FakeBackendInterceptor implements HttpInterceptor {
             product.category = 'Products';
             products.push(product);
             //localStorage.setItem(usersKey, JSON.stringify(users));
-            debugger
             return ok(product);
+        }
+        function updateProfile() {
+            const profile = body
+            return ok(profile);
         }
         function getSuggestedSearchList() {
             const { serachValue } = body;

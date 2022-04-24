@@ -1,0 +1,42 @@
+<div [formGroup]="form">
+  <div class="pt-52 pb-32 bg-gray-100">
+    <div class="container">
+      <div class="grid grid-cols-12 gap-4 lg:gap-8 xxl:gap-16">
+        <div class="contact__form col-span-12 lg:col-span-12">
+          <div>
+            <p>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>First Name</mat-label>
+                <input matInput placeholder="First Name" value="" formControlName="firstName">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Last Name</mat-label>
+                <input matInput placeholder="Last Name" value="" formControlName="lastName">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Phone Number</mat-label>
+                <input matInput placeholder="Phone Number" value="" formControlName="phoneNumber">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Telegram ID</mat-label>
+                <input matInput placeholder="Telegram ID" value="" formControlName="telegramId">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field class="example-full-width" appearance="fill">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="Email" value="" formControlName="email">
+              </mat-form-field>
+            </p>
+            <button class="px-5 py-2 bg-accent text-white mt-5 rounded font-medium" (click)="onSubmit()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

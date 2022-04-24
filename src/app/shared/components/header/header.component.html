@@ -24,9 +24,9 @@
           <p class="avatar" [matMenuTriggerFor]="menu" data-letters="MR"><span>{{currentUser?.firstName}}</span>
 
             <mat-menu class="profile-menu" #menu="matMenu">
-              <button mat-menu-item>
+              <a mat-menu-item [routerLink]="['auth/profile']">
                 <mat-icon>account_circle</mat-icon><span>Profile</span>
-              </button>
+              </a>
               <button mat-menu-item>
                 <mat-icon>list</mat-icon><span>My List</span>
               </button>
