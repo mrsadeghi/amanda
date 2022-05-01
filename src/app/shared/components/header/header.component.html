@@ -17,19 +17,30 @@
         class="_sidenav__toggler ml-auto md:ml-3 ms-sm-3" mat-icon-button>
         <mat-icon>menu</mat-icon>
       </button>
-      <div class="hidden items-center md:flex ml-auto">
+      <div class="items-center flex ml-auto">
+        <button mat-icon-button>
+          <mat-icon>notifications</mat-icon>
+        </button>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>account_circle</mat-icon>
+        </button>
+        <mat-menu class="profile-menu" #menu="matMenu">
+          <a mat-menu-item [routerLink]="['dashboard']">
+            <mat-icon>dashboard</mat-icon><span>Dashboard</span>
+          </a>
+          <button mat-menu-item>
+            <mat-icon>logout</mat-icon><span>Logout</span>
+          </button>
+        </mat-menu>
+      </div>
+      <!-- <div class="hidden items-center md:flex ml-auto">
         <div *ngIf="currentUser?.username;then content else other_content"></div>
         <ng-template #content>
-          <!-- <span></span> -->
           <p class="avatar" [matMenuTriggerFor]="menu" data-letters="MR"><span>{{currentUser?.firstName}}</span>
-
             <mat-menu class="profile-menu" #menu="matMenu">
-              <a mat-menu-item [routerLink]="['auth/profile']">
-                <mat-icon>account_circle</mat-icon><span>Profile</span>
+              <a mat-menu-item [routerLink]="['dashboard']">
+                <mat-icon>dashboard</mat-icon><span>Dashboard</span>
               </a>
-              <button mat-menu-item>
-                <mat-icon>list</mat-icon><span>My List</span>
-              </button>
               <button mat-menu-item>
                 <mat-icon>logout</mat-icon><span>Logout</span>
               </button>
@@ -41,7 +52,7 @@
           <a [routerLink]="['/auth/signup']" mat-raised-button color="accent"
             class="text-lg font-bold py-2 px-5 ml-2">Join Now</a>
         </ng-template>
-      </div>
+      </div> -->
     </div>
   </div>
 </header>

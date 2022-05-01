@@ -6,7 +6,7 @@ import { first } from 'rxjs/operators';
 
 import { AccountService } from '@app/shared/services/account.service';
 import { AlertService } from '@app/shared/services/alert.service';
-import { ProfileRequestVM } from '@app/shared/models/profile';
+import { ProfileRequestVM } from '@app/shared/models/user/profile';
 
 @Component({
   selector: 'll-profile',

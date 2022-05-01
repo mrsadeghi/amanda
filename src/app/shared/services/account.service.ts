@@ -5,8 +5,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { environment } from '@environments/environment';
-import { User } from '@app/shared/models/user';
-import { ProfileRequestVM } from '../models/profile';
+import { User } from '@app/shared/models/user/user';
+import { ProfileRequestVM } from '../models/user/profile';
 
 @Injectable({ providedIn: 'root' })
 export class AccountService {

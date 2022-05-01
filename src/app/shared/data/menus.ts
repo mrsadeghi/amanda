@@ -16,12 +16,12 @@ export const menuList: Menu[] = [
     path: '/contact',
     name: 'Contact'
   },
-  {
-    path: '/dashboard',
-    name: 'Dashboard'
-  },
-  {
-    path: '/doc',
-    name: 'Doc'
-  }
+  // {
+  //   path: '/dashboard',
+  //   name: 'Dashboard'
+  // },
+  // {
+  //   path: '/doc',
+  //   name: 'Doc'
+  // }
 ];

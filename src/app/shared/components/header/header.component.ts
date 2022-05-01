@@ -2,7 +2,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { menuList as staticMenuList } from '../../data/menus';
 import { AccountService } from '@app/shared/services/account.service';
-import { User } from '@app/shared/models/user';
+import { User } from '@app/shared/models/user/user';
 import { Observable } from 'rxjs';
 
 @Component({
